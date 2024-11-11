@@ -8,7 +8,7 @@ public class numDivWithThree
 
         for(int i = 0; i<nums.length; i++){
 
-            if(nums[i]%3 == 0 && nums[i] !=0 ){
+            if(nums[i]%3 == 0 && nums[i] !=0 ){ //&& nums[i]%2 == 0  for strictly divisible by 2 & 3.
                 count++;
             }
         }
