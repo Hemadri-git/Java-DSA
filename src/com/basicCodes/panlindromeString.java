@@ -1,4 +1,4 @@
-package com.array;
+package com.basicCodes;
 
 public class panlindromeString
 {
