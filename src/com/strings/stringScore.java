@@ -10,21 +10,18 @@ public class stringScore
 {
     public static void main(String[] args) {
 
-        String name  = "hello";
-        int res = 0;
+        String s = "hello";
+        int ans = 0;
 
-        for(int i = 0; i < name.length()-1; i++){
-            int i1 = i;
-            int i2 = i + 1;
-
-            char fc = name.charAt(i1);
-            char sc = name.charAt(i2);
-
-            int diff = Math.abs(fc - sc );
-            res += diff;
-
+        for(int i = 0; i<s.length()-1; i++)
+        {
+            int first = s.charAt(i);
+            int second = s.charAt(i+1);
+            int adj = first - second;
+            int abs = Math.abs(adj);
+            ans = ans + abs;
         }
 
-        System.out.println(res);
+        System.out.println(ans);
     }
 }
