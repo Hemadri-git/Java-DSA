@@ -1,36 +1,17 @@
 package com.demo;
+import java.sql.SQLOutput;
 import  java.util.Scanner;
 public class demo
 {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        int length = 5;
 
-        String name = sc.nextLine();
-        boolean palindrome = true;
-        int len = name.length();//5
-        int mid = len/2;//1 to 2
-
-        for (int i = 0; i<mid; i++){
-            if (name.charAt(i) != name.charAt(len-i-1)){
-                palindrome = false;
-                break;
-
+        for (int i = 0; i < length; i++){
+            for (int j =0; j <length; j++){
+                System.out.print("*");
             }
+            System.out.println();
         }
-
-        if (palindrome){
-            System.out.println("palindrome ");
-        }
-        else
-        {
-            System.out.println("not a palindrome");
-        }
-
-
-
-
-
-
     }
 }
