@@ -6,12 +6,10 @@ class Test {
         int n = sc.nextInt();
         int num[] = new int[n];
 
-        for(int i = 0; i<n; i++){
-            num[i] = sc.nextInt();
+        for(int i = 0; i<=10; i++){
+            System.out.println(n + " * " + i + " = " +(i*n));
         }
 
-        for(int i = 0; i<n; i++){
-            System.out.print(num[i]);
-        }
+
     }
 }
