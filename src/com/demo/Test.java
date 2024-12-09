@@ -1,11 +1,11 @@
 package com.demo;
-import java.util.*;
+
 
 class Test {
 
     public static void main(String[] args) {
 
-        int num[] = {1,22,3,21,3,42,2};
+        int[] num = {1,22,3,21,3,42,2};
         int n = num.length;
 
         for (int i =0; i<n-1; i++){
@@ -18,7 +18,7 @@ class Test {
                     swap = true;
                 }
             }
-            if (swap == false){
+            if (!swap){
                 break;
 
             }
