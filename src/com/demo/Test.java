@@ -1,15 +1,32 @@
 package com.demo;
 import java.util.*;
-class Test {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int num[] = new int[n];
 
-        for(int i = 0; i<=10; i++){
-            System.out.println(n + " * " + i + " = " +(i*n));
+class Test {
+
+    public static void main(String[] args) {
+
+        int num[] = {1,22,3,21,3,42,2};
+        int n = num.length;
+
+        for (int i =0; i<n-1; i++){
+            boolean swap = false;
+            for (int j = 0; j< n-i-1; j++){
+                if (num[j] > num[j+1]){
+                    int temp = num[j];
+                    num[j] = num[j+1];
+                    num[j+1] =temp;
+                    swap = true;
+                }
+            }
+            if (swap == false){
+                break;
+
+            }
         }
 
+        for (int i =0; i<n; i++){
+            System.out.print(num[i]+ " ");
+        }
 
     }
 }
