@@ -1,14 +1,18 @@
 package com.demo;
 
-import java.io.FileReader;
+public class Test
+{
+    public static void main(String[] args)
+    {
+        try
+        {
 
-class Test {
-
-    public static void main(String[] args) throws Exception {
-
-        FileReader file = new FileReader("array.java");
+        }
+        catch(Exception e)  //Exception and Throwable both are allowed
+        {
+            e.printStackTrace();
+        }
 
     }
-
 
 }
