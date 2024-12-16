@@ -1,52 +1,38 @@
 package com.demo;
 
-class Customer implements Runnable
+class MyTable
 {
-    private int availableSeat = 1;
-    private int wantedSeat;  //1
-
-    public Customer(int wantedSeat)
+    public static synchronized void printTable(int n)  //static synchronization
     {
-        super();
-        this.wantedSeat = wantedSeat;
-    }
-
-    @Override
-    public synchronized void run()
-    {
-        String name = null;
-
-        if(availableSeat >= wantedSeat)
+        for(int i=1; i<=10; i++)
         {
-            name = Thread.currentThread().getName();
-            System.out.println(wantedSeat+" seat is reserved for "+name);
-            availableSeat = availableSeat - wantedSeat;
+            try
+            {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e)
+            {
+                System.err.println("Thread is Interrupted...");
+            }
+            System.out.println(n+" X "+i+" = "+(n*i));
         }
-        else
-        {
-            name = Thread.currentThread().getName();
-            System.err.println("Sorry!!"+name+" seat is not available");
-        }
-
-
+        System.out.println("------------------------");
     }
-
 }
-
-public class Test {
-
-    public static void main(String[] args) throws InterruptedException
+public class Test
+{
+    public static void main(String[] args)
     {
-        Customer c1 = new Customer(1);
+        Thread t1 = new Thread(() -> MyTable.printTable(5));
 
-        Thread t1 = new Thread(c1,"Scott");
-        Thread t2 = new Thread(c1,"Smith");
+        Thread t2 = new Thread(() -> MyTable.printTable(10));
+
+        Runnable r3 = ()-> MyTable.printTable(15);
+        Thread t3 = new Thread(r3);
 
         t1.start();
-
-
         t2.start();
+        t3.start();
 
     }
-
 }
