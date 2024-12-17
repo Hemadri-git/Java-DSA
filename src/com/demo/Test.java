@@ -1,38 +1,36 @@
 package com.demo;
 
-class MyTable
+class MyThread implements Runnable
 {
-    public static synchronized void printTable(int n)  //static synchronization
+    @Override
+    public void run()
     {
+        String name = Thread.currentThread().getName();
+
         for(int i=1; i<=10; i++)
         {
-            try
+            System.out.println("i value is :"+i+" by "+name);
+
+            if(name.equals("Child1"))
             {
-                Thread.sleep(100);
+                Thread.yield();
             }
-            catch(InterruptedException e)
-            {
-                System.err.println("Thread is Interrupted...");
-            }
-            System.out.println(n+" X "+i+" = "+(n*i));
         }
-        System.out.println("------------------------");
     }
 }
-public class Test
-{
+
+public class Test {
+
     public static void main(String[] args)
     {
-        Thread t1 = new Thread(() -> MyTable.printTable(5));
+        MyThread mt = new MyThread();
 
-        Thread t2 = new Thread(() -> MyTable.printTable(10));
+        Thread t1 = new Thread(mt, "Child1");
+        Thread t2 = new Thread(mt, "Child2");
 
-        Runnable r3 = ()-> MyTable.printTable(15);
-        Thread t3 = new Thread(r3);
+        t1.start();  t2.start();
 
-        t1.start();
-        t2.start();
-        t3.start();
 
     }
+
 }
